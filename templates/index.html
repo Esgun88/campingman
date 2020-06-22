@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 부트스트랩 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+
+    <!-- 자바스크립트 및 jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css.css') }}" />
+
+    <!-- 구글폰트 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+
+    <!-- 캐싱 때문에 css파일로 넣으면 바로바로 체크 안돼서 일단 여기다 함. -->
+    <style>
+        .wrapper {
+            width: 900px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            height: 1000px;
+            background-color: rgb(224, 241, 255);
+            padding: 10px;
+
+        }
+
+        * {
+            font-family: 'Noto Sans KR', sans-serif;
+
+        }
+
+        .dropdown {
+            display: inline-block;
+        }
+
+        .region_contorller {
+            width: 300px;
+            display: inline-block;
+        }
+
+
+
+
+        [type="date"] {
+            background: #fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png) 97% 50% no-repeat;
+        }
+
+        [type="date"]::-webkit-inner-spin-button {
+            display: none;
+        }
+
+        [type="date"]::-webkit-calendar-picker-indicator {
+            opacity: 0;
+        }
+
+        /* custom styles */
+        body {
+            /* padding: 4em; */
+            background: #e5e5e5;
+            font: 13px/1.4 Geneva, 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+        }
+
+        label {
+            display: block;
+        }
+
+        input {
+            border: 1px solid #c4c4c4;
+            border-radius: 5px;
+            background-color: #fff;
+            padding: 3px 5px;
+            box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.1);
+            width: 190px;
+        }
+
+        .searchbutton {
+            display: table;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .result {
+            text-align: center;
+            height: 400px;
+
+        }
+    </style>
+
+    <title>캠핑 사이트 조회</title>
+</head>
+
+<body>
+    <!-- 상단 GNB -->
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="./static/camping.png" width="30" height="30" class="d-inline-block align-top" alt=""
+                loading="lazy">
+            캠핑 남는자리 조회
+        </a>
+    </nav>
+    <div class='wrapper'>
+        </br>
+        <h5>캠핑지역 선택</h5>
+        <div class='region_contorller'>
+            <div class="input-group mb-3">
+                <!-- <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">캠핑지역</label>
+                </div> -->
+                <select class="custom-select" id="inputGroupSelect01">
+                    <option selected>지역을 선택 해 주세요</option>
+                    <option value="1">서울/경기</option>
+                    <option value="2">강원</option>
+                    <option value="3">충청</option>
+                    <option value="4">전라남도</option>
+                    <option value="5">전라북도</option>
+                    <option value="6">경상남도</option>
+                    <option value="7">경상북도</option>
+                    <option value="8">제주</option>
+
+
+                </select>
+            </div>
+        </div>
+        </br>
+        </br>
+
+        <div class="datepicker">
+
+            <h5>캠핑날짜 선택</h5>
+            <input type="date" name="dateofbirth" id="dateofbirth">
+        </div>
+        <div class='searchbutton'>
+            <button type="button" class="btn btn-primary" id="search_button">검색</button>
+        </div>
+        </br>
+        </br>
+        <div class="result">
+            <h5>이 곳에 검색 결과가 나타납니다</h5>
+        </div>
+    </div>
+
+</body>
+
+</html>
